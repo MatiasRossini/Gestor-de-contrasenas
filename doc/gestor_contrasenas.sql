@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2023 a las 22:34:48
+-- Tiempo de generación: 24-10-2023 a las 00:39:54
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -32,7 +32,7 @@ CREATE TABLE `contrasenas` (
   `STR_CONTRASENA` varchar(512) NOT NULL COMMENT 'Contraseña con protección SHA512.',
   `STR_DESCRIPCION` varchar(512) NOT NULL COMMENT 'Descripción de la contraseña.',
   `IDD_ICONOGRAFIA` int(11) NOT NULL COMMENT 'ID del icono agregado a la contraseña.',
-  `BUL_OCULTA` tinyint(1) NOT NULL COMMENT 'Valor booleano que determina si el usuario quiere (en su interfaz), mantenerla oculta.',
+  `BOO_OCULTA` tinyint(1) NOT NULL COMMENT 'Valor booleano que determina si el usuario quiere (en su interfaz), mantenerla oculta.',
   `IDD_CREADOR` int(11) NOT NULL COMMENT 'ID del usuario que la creo',
   `DTE_ALTA` date NOT NULL COMMENT 'Fecha de alta de la contraseña.',
   `DTE_MOD` date NOT NULL COMMENT 'Fecha de la ultima modificación de la contraseña.',
@@ -80,7 +80,7 @@ CREATE TABLE `grupos` (
 
 CREATE TABLE `iconografias` (
   `IDD_ICONO` int(11) NOT NULL COMMENT 'ID del icono.',
-  `STR_NOMBRE` varchar(251) NOT NULL COMMENT 'Nombre del icono.',
+  `STR_NOMBRE` varchar(100) NOT NULL COMMENT 'Nombre del icono.',
   `LNK_ICONO` varchar(512) NOT NULL COMMENT 'Link del icono en el sistema, o externo.',
   `IDD_CREADOR` int(11) DEFAULT NULL COMMENT 'ID del creador del icono (Si no es "NULL" fue creado por un usuario).',
   `IDD_TIPO` int(11) NOT NULL COMMENT 'ID del tipo de usuarios al que pertenece',
@@ -120,7 +120,7 @@ CREATE TABLE `tipos` (
   `STR_NOMBRE` varchar(100) NOT NULL COMMENT 'Nombre del tipo de usuario.',
   `STR_DESCRIPCION` varchar(512) NOT NULL COMMENT 'Descripción del tipo de usuario.',
   `INT_NIVEL` int(11) NOT NULL COMMENT 'Categoría numérica del tipo de usuario.',
-  `INT_VALOR` int(11) NOT NULL COMMENT 'Valor del tipo de usuario.',
+  `FLT_VALOR` float NOT NULL COMMENT 'Valor del tipo de usuario.',
   `DTE_ALTA` date NOT NULL COMMENT 'Fecha de alta del tipo de usuario',
   `DTE_MOD` date NOT NULL COMMENT 'Fecha de modificación del tipo de usuario',
   `DTE_BAJA` date DEFAULT NULL COMMENT 'Fecha de baja del tipo de usuario (Si no es "NULL". esta "eliminado")'
@@ -135,7 +135,7 @@ CREATE TABLE `tipos` (
 CREATE TABLE `usuarios` (
   `IDD_USUARIO` int(11) NOT NULL COMMENT 'ID del usuario.',
   `STR_USUARIO` varchar(255) NOT NULL COMMENT 'Nombre de la cuenta del usuario.',
-  `BUL_VERIFICADO` tinyint(1) NOT NULL COMMENT 'Booleano de usuario verificado.',
+  `BOO_VERIFICADO` tinyint(1) NOT NULL COMMENT 'Booleano de usuario verificado.',
   `STR_NOMBRE` varchar(100) NOT NULL COMMENT 'Nombre real del usuario.',
   `STR_APELLIDO` varchar(100) NOT NULL COMMENT 'Apellido real del usuario.',
   `DTE_FECHA_NAC` date NOT NULL COMMENT 'Fecha de nacimiento del usuario (Si es menor de 18 no saltara pestaña comprar "premium")',
