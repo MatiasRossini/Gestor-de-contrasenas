@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2023 a las 00:39:54
+-- Tiempo de generación: 03-11-2023 a las 01:52:14
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `gestor_contrasenas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `IDD_CATEGORIA` int(11) NOT NULL COMMENT 'ID de la categoria.',
+  `STR_NOMBRE` varchar(100) NOT NULL COMMENT 'Nombre de la categoria.',
+  `STR_DESCRIPCION` varchar(512) NOT NULL COMMENT 'Descripción de la categoría del sistema.',
+  `INT_NIVEL` int(11) NOT NULL COMMENT '"Nivel" de la categoría del sistema.',
+  `STR_VALOR` varchar(255) NOT NULL COMMENT 'Valor de la categoría.',
+  `DTE_ALTA` date NOT NULL COMMENT 'Fecha de alta de la categoría.',
+  `DTE_MOD` date NOT NULL COMMENT 'Fecha de modificación de la categoría.',
+  `DTE_BAJA` date DEFAULT NULL COMMENT 'Fecha de baja de la categoría. (Si no es "NULL". esta "eliminado")'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tabla de los tipos de usuarios que pueden existir.';
 
 -- --------------------------------------------------------
 
@@ -112,23 +129,6 @@ CREATE TABLE `temas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipos`
---
-
-CREATE TABLE `tipos` (
-  `IDD_TIPO` int(11) NOT NULL COMMENT 'ID del tipo de usuario.',
-  `STR_NOMBRE` varchar(100) NOT NULL COMMENT 'Nombre del tipo de usuario.',
-  `STR_DESCRIPCION` varchar(512) NOT NULL COMMENT 'Descripción del tipo de usuario.',
-  `INT_NIVEL` int(11) NOT NULL COMMENT 'Categoría numérica del tipo de usuario.',
-  `FLT_VALOR` float NOT NULL COMMENT 'Valor del tipo de usuario.',
-  `DTE_ALTA` date NOT NULL COMMENT 'Fecha de alta del tipo de usuario',
-  `DTE_MOD` date NOT NULL COMMENT 'Fecha de modificación del tipo de usuario',
-  `DTE_BAJA` date DEFAULT NULL COMMENT 'Fecha de baja del tipo de usuario (Si no es "NULL". esta "eliminado")'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tabla de los tipos de usuarios que pueden existir.';
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -170,6 +170,12 @@ CREATE TABLE `usuarios_temas` (
 --
 
 --
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`IDD_CATEGORIA`);
+
+--
 -- Indices de la tabla `contrasenas`
 --
 ALTER TABLE `contrasenas`
@@ -200,12 +206,6 @@ ALTER TABLE `temas`
   ADD PRIMARY KEY (`IDD_TEMA`);
 
 --
--- Indices de la tabla `tipos`
---
-ALTER TABLE `tipos`
-  ADD PRIMARY KEY (`IDD_TIPO`);
-
---
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -220,6 +220,12 @@ ALTER TABLE `usuarios_temas`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `IDD_CATEGORIA` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de la categoria.';
 
 --
 -- AUTO_INCREMENT de la tabla `contrasenas`
@@ -250,12 +256,6 @@ ALTER TABLE `iconografias`
 --
 ALTER TABLE `temas`
   MODIFY `IDD_TEMA` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID del tema.';
-
---
--- AUTO_INCREMENT de la tabla `tipos`
---
-ALTER TABLE `tipos`
-  MODIFY `IDD_TIPO` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID del tipo de usuario.';
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
