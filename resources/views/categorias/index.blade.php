@@ -10,6 +10,9 @@
               {{$heading}}
             </h2>
 
+            <x-search :placeholder="'Buscar por Categoria, Precio o Descripción'">
+            </x-search>
+
             <!-- New Table -->
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
               <div class="w-full overflow-x-auto">
@@ -80,7 +83,7 @@
                               ></div>
                             </div>
                             <div>
-                              <p class="font-semibold">{{$categoria['nombre']}}</p>
+                              <p class="font-semibold">{{$categoria['STR_NOMBRE']}}</p>
                               <p class="text-xs text-gray-600 dark:text-gray-400">
                                 10x Developer
                               </p>
@@ -91,11 +94,16 @@
                           <span
                             class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                           >
-                            {{$categoria['precio']}}
+                            @if ($categoria['INT_VALOR'] != 0)
+                              ${{$categoria['INT_VALOR']}}
+                            
+                            @elseif ($categoria['INT_VALOR'] === 0)
+                              Gratis
+                            @endif
                           </span>
                         </td>
                         <td class="px-4 py-3 text-sm">
-                          {{$categoria['descripcion']}}
+                          {{$categoria['STR_DESCRIPCION']}}
                         </td>
                       </tr>
 

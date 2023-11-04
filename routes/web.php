@@ -1,7 +1,8 @@
 <?php
 
+use App\Models\Categorias;
 use Illuminate\Support\Facades\Route;
-use App\Models\categorias;
+use App\Http\Controllers\CategoriasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,4 @@ use App\Models\categorias;
 |
 */
 
-Route::get('/', function () {
-    return view('index', 
-    [
-        'heading' => 'Premium',
-        'categorias' => categorias::all()
-    ]);
-});
+Route::get('/', [CategoriasController::class, 'index']);
