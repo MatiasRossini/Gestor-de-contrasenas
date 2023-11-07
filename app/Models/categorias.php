@@ -13,13 +13,13 @@ class Categorias extends Model
     //Datos que iran a la BD
     protected $fillable = 
     [
-        'STR_NOMBRE',
-        'STR_DESCRIPCION',
-        'INT_NIVEL',
-        'INT_VALOR',
-        'DTE_ALTA',
-        'DTE_MOD',
-        'DTE_BAJA'
+        'STR_NOMBRE'
+        ,'STR_DESCRIPCION'
+        ,'INT_NIVEL'
+        ,'INT_VALOR'
+        ,'DTE_ALTA'
+        ,'DTE_MOD'
+        ,'DTE_BAJA'
     ];
 
     public function scopeFilter($query, array $filtros)
