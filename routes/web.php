@@ -14,7 +14,7 @@ use App\Http\Controllers\CategoriasController;
 |
 */
 
-/* CATEGORIAS */
+/* CATEGORIAS - SOLO ADMIN */
 //Muestra una tabla con todas las categorías
 Route::get('/', [CategoriasController::class, 'index'])->name('home');
 
@@ -29,7 +29,6 @@ Route::get('/categorias/{categoria}/edit', [CategoriasController::class, 'edit']
 
 //Carga los datos editados
 Route::put('/categorias/{categoria}', [CategoriasController::class, 'update'])->name('categorias.update');
-
 
 //Muestra una categoría y sus datos
 Route::get('/categorias/{categoria}', [CategoriasController::class, 'show'])->name('categorias.show');
