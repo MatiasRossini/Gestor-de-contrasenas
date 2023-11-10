@@ -24,8 +24,13 @@ Route::get('/categorias/create', [CategoriasController::class, 'create'])->name(
 //Carga los datos en la BD
 Route::post('/categorias', [CategoriasController::class, 'store'])->name('categorias.store');
 
+//Muestra formulario para editar categoría
+Route::get('/categorias/{categoria}/edit', [CategoriasController::class, 'edit'])->name('categorias.edit');
+
+//Carga los datos editados
+Route::put('/categorias/{categoria}', [CategoriasController::class, 'update'])->name('categorias.update');
 
 
 //Muestra una categoría y sus datos
-Route::get('/categorias/{{categoria}}', [CategoriasController::class, 'show'])->name('categorias.show');
+Route::get('/categorias/{categoria}', [CategoriasController::class, 'show'])->name('categorias.show');
 /* FIN CATEGORIAS */

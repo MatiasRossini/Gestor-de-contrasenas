@@ -2,6 +2,13 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 const Color = require('color')
 
+content: [
+  './resources/**/*.blade.php',
+  './resources/**/*.js',
+  './resources/**/*.vue',
+  './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php'
+]
+
 module.exports = {
   purge: ['public/**/*.html'],
   theme: {

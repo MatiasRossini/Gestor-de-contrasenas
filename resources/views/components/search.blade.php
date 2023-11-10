@@ -23,7 +23,20 @@
       name="search"
       placeholder="{{$placeholder}}"
       aria-label="Search"
+      autofocus
+      onfocus="this.select()"
     />
+    {{-- <span class="text-gray-700 dark:text-gray-400">
+      Estados
+    </span>
+    <select
+    class="mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+    name="estado"
+    >
+        <option value="0">No eliminado</option>
+        <option value="1">Eliminado</option>
+        <option value="2">Todos</option>
+    </select> --}}
   </form> 
   <a
     class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple"

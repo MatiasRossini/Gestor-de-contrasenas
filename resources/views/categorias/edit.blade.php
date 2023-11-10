@@ -6,11 +6,15 @@
     <h2
       class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
     >
-      {{$heading}}
+    CATEGORÍA: '{{$categoria->STR_NOMBRE}}'
     </h2>
          
-    <form method="POST" action="{{route('categorias.store')}}">
+    <form method="POST" action="{{route('categorias.update', $categoria->id)}}">
         @csrf
+
+        {{-- Metodo propio de Laravel para actualizar datos --}}
+        @method('PUT')
+
         <div
             class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
@@ -20,7 +24,7 @@
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                 name="STR_NOMBRE"
                 placeholder="Nombre de la categoría..."
-                value="{{old('STR_NOMBRE')}}"
+                value="{{$categoria->STR_NOMBRE}}"
             />
 
             @error('STR_NOMBRE')
@@ -36,7 +40,7 @@
                 rows="3"
                 name="STR_DESCRIPCION"
                 placeholder="Descripción de la categoría..."
-            >{{old('STR_DESCRIPCION')}}</textarea>
+            >{{$categoria->STR_DESCRIPCION}}</textarea>
             
             @error('STR_DESCRIPCION')
                 <p class="text-red-600 text-xs mt-1">{{$message}}</p>
@@ -53,7 +57,7 @@
                     name="INT_NIVEL"
                     placeholder="0-99"
                     min="0" max="99"
-                    value="{{old('INT_NIVEL')}}"
+                    value="{{$categoria->INT_NIVEL}}"
                     >
                     
                     @error('INT_NIVEL')
@@ -70,7 +74,7 @@
                     name="FLT_VALOR"
                     placeholder="$"
                     min="0" step="0.50"
-                    value="{{old('FLT_VALOR')}}"
+                    value="{{$categoria->FLT_VALOR}}"
                     >
 
                     @error('FLT_VALOR')
@@ -91,7 +95,7 @@
             type="submit"
             class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-            Subir
+            Actualizar
             </button>
             </div>
         </div>

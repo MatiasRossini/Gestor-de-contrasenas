@@ -16,7 +16,7 @@ class Categorias extends Model
         'STR_NOMBRE'
         ,'STR_DESCRIPCION'
         ,'INT_NIVEL'
-        ,'INT_VALOR'
+        ,'FLT_VALOR'
         ,'DTE_ALTA'
         ,'DTE_MOD'
         ,'DTE_BAJA'
@@ -24,11 +24,28 @@ class Categorias extends Model
 
     public function scopeFilter($query, array $filtros)
     {
+        //dd($filtros);
         if ($filtros['search'] ?? false) //Si el filtro no es nulo
         {
             $query->where('STR_NOMBRE', 'like', '%' . request('search') . '%')
             ->orWhere('STR_DESCRIPCION', 'like', '%' . request('search') . '%')
-            ->orWhere('INT_VALOR', '<=',  request('search'));
+            ->orWhere('FLT_VALOR', '<=', request('search'));
         }
+        // if ($filtros['estado'] ?? false)
+        // {
+        //     switch ($filtros['estado'])
+        //     {
+        //         case 0:
+        //             $query->orWhere('DTE_BAJA', '=', 'null');
+        //             break;
+
+        //         case 1:
+        //             $query->orWhere('DTE_BAJA', '!=', 'null');
+        //             break;
+
+        //         case 2:
+        //             break;
+        //     }
+        // }
     }
 }
