@@ -111,12 +111,11 @@
                 </a>
               </p>
               <p class="mt-1 text-sm font-medium text-white">
-                No tienenes una cuenta? 
                 <a
                   class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
                   href="{{route('usuarios.create')}}"
                 >
-                  Registrarse
+                  ¿No tienenes una cuenta? Registrarse
                 </a>
               </p>
             </div>

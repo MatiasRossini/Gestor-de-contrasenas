@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Categorias;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GruposController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\CategoriasController;
 /*
@@ -50,6 +50,41 @@ Route::get('/login', [UsuariosController::class, 'login'])
 Route::post('usuarios/authenticate', [UsuariosController::class, 'authenticate'])->name('usuarios.authenticate');
 
 /* FIN USUARIOS */
+
+/* GRUPOS */
+
+//Muestra una tabla con todos los grupos del usuario
+Route::get('/grupos/index', [GruposController::class, 'index'])
+->name('grupos.index')
+->middleware('auth');
+
+//Muestra formulario para crear categoría
+Route::get('/grupos/create', [GruposController::class, 'create'])
+->name('grupos.create')
+->middleware('auth');
+
+//Carga los datos en la BD
+Route::post('/grupos', [GruposController::class, 'store'])
+->name('grupos.store')
+->middleware('auth');
+
+//Muestra formulario para editar categoría
+Route::get('/grupos/{grupo}/edit', [GruposController::class, 'edit']
+)->name('grupos.edit')
+->middleware('auth');
+
+//Carga los datos editados
+Route::put('/grupos/{grupos}', [GruposController::class, 'update'])
+->name('grupos.update')
+->middleware('auth');
+
+//Muestra una categoría y sus datos
+Route::get('/grupos/{grupo}', [GruposController::class, 'show'])
+->name('grupos.show')
+->middleware('auth');
+
+/* FIN GRUPOS */
+
 
 /* CATEGORIAS - SOLO ADMIN */
 //Muestra una tabla con todas las categorías
