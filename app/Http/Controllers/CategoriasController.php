@@ -20,6 +20,7 @@ class CategoriasController extends Controller
         ]);
     }
 
+    // Muestra una sola categoria - realizar
     public function show()
     {
         return view('categorias.show',
@@ -28,6 +29,7 @@ class CategoriasController extends Controller
         ]);
     }
 
+    // Formulario para crear nueva categoria
     public function create()
     {
         return view('categorias.create',
@@ -36,6 +38,7 @@ class CategoriasController extends Controller
         ]);
     }
 
+    // Almacenado en la BD de la categoria creada
     public function store(Request $request)
     {
         //dd($request->all());
@@ -54,7 +57,7 @@ class CategoriasController extends Controller
 
         Categorias::create($camposForm);
 
-        return to_route('home');
+        return to_route('categorias.index');
     }
 
     //Mostrar formulario de edición

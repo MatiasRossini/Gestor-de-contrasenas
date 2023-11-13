@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    public $timestamps = false; //Quita las timestamps del modelo base
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -18,9 +19,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'STR_USUARIO'
+        ,'STR_CORREO'
+        ,'password'
+        ,'DTE_ALTA'
+        ,'DTE_MOD'
+        ,'DTE_BAJA'
     ];
 
     /**
@@ -30,7 +34,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
