@@ -31,21 +31,5 @@ class Categorias extends Model
             ->orWhere('STR_DESCRIPCION', 'like', '%' . request('search') . '%')
             ->orWhere('FLT_VALOR', '<=', request('search'));
         }
-        // if ($filtros['estado'] ?? false)
-        // {
-        //     switch ($filtros['estado'])
-        //     {
-        //         case 0:
-        //             $query->orWhere('DTE_BAJA', '=', 'null');
-        //             break;
-
-        //         case 1:
-        //             $query->orWhere('DTE_BAJA', '!=', 'null');
-        //             break;
-
-        //         case 2:
-        //             break;
-        //     }
-        // }
     }
 }

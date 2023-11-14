@@ -74,8 +74,13 @@ Route::get('/grupos/{grupo}/edit', [GruposController::class, 'edit']
 ->middleware('auth');
 
 //Carga los datos editados
-Route::put('/grupos/{grupos}', [GruposController::class, 'update'])
+Route::put('/grupos/{grupo}', [GruposController::class, 'update'])
 ->name('grupos.update')
+->middleware('auth');
+
+//Carga los datos editados
+Route::delete('/grupos/{grupo}', [GruposController::class, 'destroy'])
+->name('grupos.delete')
 ->middleware('auth');
 
 //Muestra una categoría y sus datos

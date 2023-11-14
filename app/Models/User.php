@@ -45,4 +45,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Relación con la tabla grupos
+    public function grupos()
+    {
+        return $this->hasMany(Grupos::class, 'IDD_CREADOR');
+    }
 }

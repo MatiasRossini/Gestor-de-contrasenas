@@ -6,14 +6,15 @@
     <h2
       class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
     >
-      {{$heading}}
+    GRUPO: '{{$grupo->STR_NOMBRE}}'
     </h2>
          
-    <form method="POST" action="{{route('grupos.store')}}">
+    <form method="POST" action="{{route('grupos.update', $grupo->id)}}">
         @csrf
-        
 
-          <label data-te-select-label-ref>Example label</label>
+        {{-- Metodo propio de Laravel para actualizar datos --}}
+        @method('PUT')
+
         <div
             class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
@@ -22,8 +23,8 @@
             <input
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                 name="STR_NOMBRE"
-                placeholder="Nombre del grupo..."
-                value="{{old('STR_NOMBRE')}}"
+                placeholder="Nombre de la categoría..."
+                value="{{$grupo->STR_NOMBRE}}"
             />
 
             @error('STR_NOMBRE')
@@ -38,8 +39,8 @@
                 class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                 rows="3"
                 name="STR_DESCRIPCION"
-                placeholder="Descripción del grupo..."
-            >{{old('STR_DESCRIPCION')}}</textarea>
+                placeholder="Descripción de la categoría..."
+            >{{$grupo->STR_DESCRIPCION}}</textarea>
             
             @error('STR_DESCRIPCION')
                 <p class="text-red-600 text-xs mt-1">{{$message}}</p>
@@ -60,9 +61,11 @@
             type="submit"
             class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-            Subir
+            Actualizar
             </button>
             </div>
+        </div>
+
         </div>
     </form>
 

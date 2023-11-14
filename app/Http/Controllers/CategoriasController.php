@@ -50,10 +50,8 @@ class CategoriasController extends Controller
             'FLT_VALOR' => ['required', 'min:0', Rule::unique('categorias', 'FLT_VALOR')],   
         ]);
         
-        $camposForm = array_merge($camposForm, array(
-            'DTE_ALTA' => date("Y-m-d") 
-            ,'DTE_MOD' => date("Y-m-d")
-        ));
+        $camposForm['DTE_ALTA'] = date('Y-m-d');
+        $camposForm['DTE_MOD'] = date('Y-m-d');
 
         Categorias::create($camposForm);
 
@@ -70,7 +68,7 @@ class CategoriasController extends Controller
 
     public function update(Request $request, Categorias $categoria)
     {
-        //dd($categoria->id);
+        //dd($categoria);
         $camposForm = $request->validate(
         [
             'STR_NOMBRE' => ['required', 'max:100', Rule::unique('categorias', 'STR_NOMBRE', $categoria)->ignore($categoria)]

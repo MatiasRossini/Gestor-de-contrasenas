@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Grupos extends Model
 {
@@ -15,8 +16,8 @@ class Grupos extends Model
     [
         'STR_NOMBRE'
         ,'STR_DESCRIPCION'
-        ,''
-        ,''
+        ,'IDD_ICONOGRAFIA'
+        ,'IDD_CREADOR'
         ,'DTE_ALTA'
         ,'DTE_MOD'
         ,'DTE_BAJA'
@@ -30,5 +31,11 @@ class Grupos extends Model
             $query->where('STR_NOMBRE', 'like', '%' . request('search') . '%')
             ->orWhere('STR_DESCRIPCION', 'like', '%' . request('search') . '%');
         }
+    }
+
+    // El grupo pertenece a el ID actual de usuario
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'IDD_CREADOR');
     }
 }
