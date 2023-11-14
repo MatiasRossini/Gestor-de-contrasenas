@@ -92,6 +92,7 @@ Route::get('/grupos/{grupo}', [GruposController::class, 'show'])
 
 
 /* CATEGORIAS - SOLO ADMIN */
+
 //Muestra una tabla con todas las categorías
 Route::get('/categorias/index', [CategoriasController::class, 'index'])
 ->name('categorias.index');
@@ -118,4 +119,5 @@ Route::put('/categorias/{categoria}', [CategoriasController::class, 'update'])
 
 //Muestra una categoría y sus datos
 Route::get('/categorias/{categoria}', [CategoriasController::class, 'show'])->name('categorias.show');
+
 /* FIN CATEGORIAS */

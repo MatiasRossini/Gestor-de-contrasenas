@@ -1,9 +1,13 @@
 <div class="py-4 text-gray-500 dark:text-gray-400">
     <a
-      class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+      class="flex items-center ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
       href="{{route('index')}}"
     >
       KeyLock
+      <span class="txt-sm">
+        <img src="{{asset('img/keylock-logo.png')}}" class="w-8 h-12" alt="KeyLock logo">
+      </span>
+
     </a>
     <ul class="mt-6">
       @auth
