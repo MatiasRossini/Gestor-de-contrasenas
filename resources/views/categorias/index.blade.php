@@ -9,9 +9,6 @@
       {{$heading}}
     </h2>
 
-    <x-search :placeholder="'Buscar por Categoria, Precio o Descripción'" and create="{{route('categorias.create')}}">
-    </x-search>
-
     <!-- New Table -->
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
@@ -21,7 +18,7 @@
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
             >
               <th class="px-4 py-3" hidden>#</th> <!-- ID -->
-              <th class="px-3 py-3">Acción</th> <!-- ID -->
+              {{-- <th class="px-3 py-3">Acción</th> <!-- ID --> --}}
               <th class="px-4 py-3">Categoria</th> <!-- Nombre -->
               <th class="px-4 py-3">Precio</th>
               <th class="px-4 py-3">Descripción</th>
@@ -39,16 +36,16 @@
               <td class="px-4 py-3" hidden>
                 <p>{{$categoria->id}}</p>
               </td>
-              {{-- Acciones --}}
+              {{-- Acciones
               <td class="px-3 py-3">
                 <div class="flex items-center space-x-4 text-sm">
                   <a href="{{ route('categorias.edit', $categoria->id) }}" class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                       </svg>               
-                  </a> {{-- Edit --}}
+                  </a> <-- Edit -->
                 </div>
-              </td>
+              </td> --}}
               <td class="px-4 py-3">
                 <div class="flex items-center text-sm">
                   <!-- Avatar with inset shadow -->
