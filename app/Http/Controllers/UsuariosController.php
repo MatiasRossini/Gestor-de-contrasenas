@@ -11,7 +11,10 @@ class UsuariosController extends Controller
     // Muestra formulario para crear usuario
     public function create()
     {
-        return view('usuarios.register');
+        return view('usuarios.register',
+        [
+            'heading' => 'Registro'
+        ]);
     }
 
     // Crear nuevo usuario
@@ -60,7 +63,10 @@ class UsuariosController extends Controller
     // Mostrar formulario de login
     public function login()
     {
-        return view('usuarios.login');
+        return view('usuarios.login',
+        [
+            'heading' => 'Iniciar sesión'
+        ]);
     }
 
     // Autenticar el usuario

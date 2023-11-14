@@ -25,6 +25,13 @@ Route::get('/', function(){
     ]);
 })->name('index');
 
+Route::get('/404', function(){
+    return view('working', 
+    [
+        'heading' => 'KeyLock'
+    ]);
+})->name('404');
+
 
 /* FIN LANDING PAGE */
 

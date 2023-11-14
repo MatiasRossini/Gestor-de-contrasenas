@@ -9,41 +9,44 @@
       {{$heading}}
     </h2>
          
-    <form method="POST" action="{{route('grupos.store')}}">
+    <form method="POST" action="">
         @csrf
         
         <div
             class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
             <label class="block text-sm">
-            <span class="text-gray-700 dark:text-gray-400">Nombre</span>
+            <span class="text-gray-700 dark:text-gray-400">Nombre de usuario - Correo electrónico</span>
             <input
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                name="STR_NOMBRE"
-                placeholder="Nombre del grupo..."
-                value="{{old('STR_NOMBRE')}}"
+                name="STR_NOMBRE_USUARIO"
+                placeholder="JohnCleaver - JohnCleaver@gmail.com"
+                value="{{old('STR_NOMBRE_USUARIO')}}"
             />
 
-            @error('STR_NOMBRE')
+            @error('STR_NOMBRE_USUARIO')
                 <p class="text-red-600 text-xs mt-1">{{$message}}</p>
             @enderror
 
-            </label>
-    
+            </label> <!-- Cierra campo Nombre usuario -->
+
+            <x-password-input : name="STR_CONTRASENA">          
+            </x-password-input>
+
             <label class="block mt-4 text-sm">
             <span class="text-gray-700 dark:text-gray-400">Descripción</span>
             <textarea
                 class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                 rows="3"
                 name="STR_DESCRIPCION"
-                placeholder="Descripción del grupo..."
+                placeholder="Descripción para la contraseña..."
             >{{old('STR_DESCRIPCION')}}</textarea>
             
             @error('STR_DESCRIPCION')
                 <p class="text-red-600 text-xs mt-1">{{$message}}</p>
             @enderror
 
-            </label>
+            </label> <!-- Cierra campo descripción -->
 
             <div
             class="flex flex-col items-center justify-end mt-2 px-6 py-3 px-3 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row"
