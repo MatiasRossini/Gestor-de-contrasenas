@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\ContrasenasGrupos;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -37,5 +38,11 @@ class Grupos extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'IDD_CREADOR');
+    }
+
+    // Relación con la tabla contraseñas
+    public function contrasenasGrupos()
+    {
+        return $this->hasMany(ContrasenasGrupos::class, 'IDD_GRUPO');
     }
 }

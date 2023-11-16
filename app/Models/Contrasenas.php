@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\ContrasenasGrupos;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Contrasenas extends Model
 {
@@ -33,9 +34,15 @@ class Contrasenas extends Model
         }
     }
 
-    // El grupo pertenece a el ID actual de usuario
+    // La contraseña pertenece a el ID actual de usuario
     public function user()
     {
         return $this->belongsTo(User::class, 'IDD_CREADOR');
+    }
+
+    // Relación con la tabla contraseñas
+    public function contrasenasGrupos()
+    {
+        return $this->hasMany(ContrasenasGrupos::class, 'IDD_CONTRASENA');
     }
 }

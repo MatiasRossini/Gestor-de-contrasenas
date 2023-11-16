@@ -52,9 +52,9 @@ class User extends Authenticatable
         return $this->hasMany(Grupos::class, 'IDD_CREADOR');
     }
 
-        // Relación con la tabla contraseñas
-        public function contrasenas()
-        {
-            return $this->hasMany(Contrasenas::class, 'IDD_CREADOR');
-        }
+    // Relación con la tabla contraseñas
+    public function contrasenas()
+    {
+        return $this->hasMany(Contrasenas::class, 'IDD_CREADOR');
+    }
 }
