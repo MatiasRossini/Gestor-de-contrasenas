@@ -62,7 +62,8 @@
                 </label>
 
                 <x-password-input : name="password">
-                </x-password-input>
+                  <span class="text-gray-700 dark:text-gray-400 text-xs">(Debe contener un minimo de 10 caracteres y al menos una Mayuscula, minuscula, Número (1-9) y Caracteres especial (!$#%))</span>        
+                </x-password-input> <!-- Cierra campo contraseña -->
 
                 </label>
 

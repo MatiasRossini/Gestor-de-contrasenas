@@ -8,6 +8,18 @@ use Illuminate\Validation\Rule;
 
 class UsuariosController extends Controller
 {
+
+    // Muestra la pestaña principal del usuario
+    public function perfil()
+    {
+
+        return view('usuarios.index', [
+            'heading' => 'Perfil de ' . auth()->user()->STR_USUARIO
+            ,'contrasenas' => auth()->user()->contrasenas()->latest("DTE_ALTA")->filter(request(['search']))
+            ->paginate(5)
+        ]);
+    }
+
     // Muestra formulario para crear usuario
     public function create()
     {
@@ -25,7 +37,7 @@ class UsuariosController extends Controller
         [
             'STR_USUARIO' => ['required', 'min:10' , 'max:255', Rule::unique('users', 'STR_NOMBRE')]
             ,'STR_CORREO' => ['required', 'email' , Rule::unique('users', 'STR_CORREO')]
-            ,'password' => ['required', 'min:6' ,'confirmed'] //confirmed: revisa que el campo con el name x_confirmation tenga el mismo valor
+            ,'password' =>  [ 'required', 'min:10', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/', 'confirmed'] //Revisa que tenga al menos 1 de cada caracter y que este confirmada
             ,'PRIVACY_POLITICS' => ['required']
         ]);
 
@@ -44,7 +56,7 @@ class UsuariosController extends Controller
         //Inicia sesión automaricamente
         auth()->login($usuario);
 
-        return to_route('index');
+        return to_route('usuarios.perfil');
     }
 
     // Cerrar sesion del usuairo
@@ -83,7 +95,7 @@ class UsuariosController extends Controller
             {
                 $request->session()->regenerate();
 
-                return to_route('index');
+                return to_route('usuarios.perfil');
             }
         
             return back()->withErrors(['STR_CORREO' => 'Credenciales no validas'])->onlyInput('STR_CORREO');

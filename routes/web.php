@@ -18,25 +18,24 @@ use App\Http\Controllers\ContrasenasController;
 
 /* LANDING PAGE */
 
-Route::get('/', function(){
+Route::get('/', function()
+{
     return view('index', 
     [
         'heading' => 'KeyLock'
     ]);
 })->name('index');
 
-Route::get('/404', function(){
-    return view('working', 
-    [
-        'heading' => 'KeyLock'
-    ]);
-})->name('404');
-
-
 /* FIN LANDING PAGE */
 
 
 /* USUARIOS */
+
+// Perfil del usuario, donde se muestran todas sus contraseñas actuales
+Route::get('/perfil', [UsuariosController::class, 'perfil'])
+->name('usuarios.perfil')
+->middleware('auth');
+
 
 // Formulario para registrar usuarios
 Route::get('/registro', [UsuariosController::class, 'create'])
@@ -123,6 +122,11 @@ Route::put('/contrasenas/{contrasena}', [ContrasenasController::class, 'update']
 //Carga los datos editados
 Route::delete('/contrasenas/{contrasena}', [ContrasenasController::class, 'destroy'])
 ->name('contrasenas.delete')
+->middleware('auth');
+
+//Copia la contraseña desencriptada
+Route::get('/perfil/{contrasena}', [ContrasenasController::class, 'decrypt']
+)->name('contrasenas.decrypt')
 ->middleware('auth');
 
 

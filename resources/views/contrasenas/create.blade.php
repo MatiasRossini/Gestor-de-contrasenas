@@ -9,7 +9,7 @@
       {{$heading}}
     </h2>
          
-    <form method="POST" action="">
+    <form method="POST" action="{{route('contrasenas.store')}}">
         @csrf
         
         <div
@@ -30,8 +30,9 @@
 
             </label> <!-- Cierra campo Nombre usuario -->
 
-            <x-password-input : name="STR_CONTRASENA">          
-            </x-password-input>
+            <x-password-input : name="STR_CONTRASENA">  
+                <span class="text-gray-700 dark:text-gray-400 text-xs">(Recomendado que contenga Mayusculas, minusculas, Números (1-9) y Caracteres especiales (!$#%))</span>        
+            </x-password-input> <!-- Cierra campo contraseña -->
 
             <label class="block mt-4 text-sm">
             <span class="text-gray-700 dark:text-gray-400">Descripción</span>
@@ -58,14 +59,13 @@
             Cancelar
             </a>
             <button
-            type="submit"
-            class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                type="submit"
+                class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
             Subir
             </button>
             </div>
         </div>
     </form>
-
 
 @endsection

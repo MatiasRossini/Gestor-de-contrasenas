@@ -23,6 +23,9 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
       defer
     ></script>
+    <!-- Script para copiar al portapapeles -->
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+    
     <script src="{{asset('js/charts-lines.js')}}" defer></script>
     <script src="{{asset('js/charts-pie.js')}}" defer></script>
   </head>
@@ -311,6 +314,7 @@
           @yield('content')
         </main>
 
+        <x-flash-message/>
     </body>
 </html>
         
