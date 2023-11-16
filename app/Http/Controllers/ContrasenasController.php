@@ -70,4 +70,31 @@ class ContrasenasController extends Controller
         ]);
     }
 
+    public function update(Request $request, Contrasenas $contrasena)
+    {
+        //dd($request->all());
+        if($contrasena->IDD_CREADOR != auth()->id())
+        {
+            abort(403, 'Acción no autorizada');
+        }
+        $camposForm = $request->validate(
+        [
+            'STR_NOMBRE_USUARIO' => ['required', 'max:256']
+            ,'STR_CONTRASENA' => ['required', 'max:256']
+            ,'STR_DESCRIPCION' => ['max:512']
+        ]);
+            
+        // Encripta la contraseña ingresada
+        $camposForm['STR_CONTRASENA'] = Crypt::encryptString($camposForm['STR_CONTRASENA']);
+
+        // Agrega la fecha de creación, modificación y el ID del usuario dueño
+        $camposForm['DTE_MOD'] = date('Y-m-d');
+        $camposForm['IDD_CREADOR'] = auth()->id();
+    
+        // Almacena en la BD
+        $contrasena->update($camposForm);
+    
+        return back();
+    }
+
 }

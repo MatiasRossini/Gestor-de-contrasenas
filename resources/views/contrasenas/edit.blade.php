@@ -9,7 +9,7 @@
       {{$heading}}
     </h2>
          
-    <form method="POST" action="">
+    <form method="POST" action="{{route('contrasenas.update', $contrasena->id)}}">
         @csrf
         
         {{-- Metodo propio de Laravel para actualizar datos --}}
