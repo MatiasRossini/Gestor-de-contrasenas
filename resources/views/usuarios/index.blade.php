@@ -73,7 +73,7 @@
                       </svg>
                     </a> {{-- Copy --}}
 
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route('contrasenas.delete', $contrasena->id)}}">
                       @csrf
                       @method('DELETE')
                       <button onclick='return confirmacion()'
@@ -140,17 +140,5 @@
         {{$contrasenas->links()}}
     </div>
 </div>
-
-<script>
-  function confirmacion() {
-    var respuesta = confirm("¿Esta seguro que desea realizar esta accion? Una vez realizada no se podra recuperar")
-    if (respuesta == true){
-      return true
-    }
-    else{
-      return false
-    }
-  }
-</script>
 
 @endsection

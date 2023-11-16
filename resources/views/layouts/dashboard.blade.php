@@ -316,6 +316,8 @@
           @yield('content')
         </main>
 
+        <script src="{{asset('js/confirmacion.js')}}"></script>
+        
     </body>
 </html>
         

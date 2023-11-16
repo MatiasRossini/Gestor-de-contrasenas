@@ -97,4 +97,17 @@ class ContrasenasController extends Controller
         return back();
     }
 
+        //Función para elminar la contraseña de un usuario
+        public function destroy(Contrasenas $contrasena)
+        {
+            if($contrasena->IDD_CREADOR != auth()->id())
+            {
+                abort(403, 'Acción no autorizada');
+            }
+    
+            $contrasena->delete();
+    
+            return to_route('usuarios.perfil');
+        }    
+
 }
