@@ -18,7 +18,6 @@ class ContrasenasController extends Controller
         {
             $decrypted = Crypt::decryptString($contrasena->STR_CONTRASENA);
 
-
         } 
         catch (DecryptException $password) 
         {
@@ -58,7 +57,17 @@ class ContrasenasController extends Controller
         // Almacena en la BD
         Contrasenas::create($camposForm);
     
-        return to_route('index');
+        return to_route('usuarios.perfil');
+    }
+
+    //Mostrar formulario de edición
+    public function edit(Contrasenas $contrasena)
+    {
+        $contrasena['STR_CONTRASENA'] = $decrypted = Crypt::decryptString($contrasena->STR_CONTRASENA);
+        //dd($contrasena);
+        return view('contrasenas.edit', ['contrasena' => $contrasena,
+            'heading' => 'ACTUALIZAR CONTRASEÑA'
+        ]);
     }
 
 }

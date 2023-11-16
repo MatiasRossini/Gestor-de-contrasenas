@@ -28,7 +28,8 @@ class Contrasenas extends Model
         //dd($filtros);
         if ($filtros['search'] ?? false) //Si el filtro no es nulo
         {
-            $query->where('STR_DESCRIPCION', 'like', '%' . request('search') . '%');
+            $query->where('STR_DESCRIPCION', 'like', '%' . request('search') . '%')
+            ->orWhere('STR_NOMBRE_USUARIO', 'like', '%' . request('search') . '%');
         }
     }
 

@@ -309,12 +309,13 @@
             </ul>
           </div>
         </header>
+        
+        <x-flash-message/>
 
         <main class="h-full pb-16 overflow-y-auto">
           @yield('content')
         </main>
 
-        <x-flash-message/>
     </body>
 </html>
         

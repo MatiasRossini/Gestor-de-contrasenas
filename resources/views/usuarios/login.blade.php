@@ -45,7 +45,7 @@
   
                 </label>
   
-                <x-password-input : name="password">
+                <x-password-input : name="password" val="{{old('password')}}">
                 </x-password-input>
   
                 <button

@@ -9,8 +9,11 @@
       {{$heading}}
     </h2>
          
-    <form method="POST" action="{{route('contrasenas.store')}}">
+    <form method="POST" action="">
         @csrf
+        
+        {{-- Metodo propio de Laravel para actualizar datos --}}
+        @method('PUT')
         
         <div
             class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
@@ -21,7 +24,7 @@
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                 name="STR_NOMBRE_USUARIO"
                 placeholder="JohnCleaver - JohnCleaver@gmail.com"
-                value="{{old('STR_NOMBRE_USUARIO')}}"
+                value="{{$contrasena->STR_NOMBRE_USUARIO}}"
             />
 
             @error('STR_NOMBRE_USUARIO')
@@ -30,7 +33,7 @@
 
             </label> <!-- Cierra campo Nombre usuario -->
 
-            <x-password-input : name="STR_CONTRASENA" val="{{old('STR_CONTRASENA')}}">  
+            <x-password-input : name="STR_CONTRASENA" val="{{$contrasena->STR_CONTRASENA}}">  
                 <span class="text-gray-700 dark:text-gray-400 text-xs">(Recomendado que contenga Mayusculas, minusculas, Números (1-9) y Caracteres especiales (!$#%))</span>        
             </x-password-input> <!-- Cierra campo contraseña -->
 
@@ -41,7 +44,7 @@
                 rows="3"
                 name="STR_DESCRIPCION"
                 placeholder="Descripción para la contraseña..."
-            >{{old('STR_DESCRIPCION')}}</textarea>
+            >{{$contrasena->STR_DESCRIPCION}}</textarea>
             
             @error('STR_DESCRIPCION')
                 <p class="text-red-600 text-xs mt-1">{{$message}}</p>

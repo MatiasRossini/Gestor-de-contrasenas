@@ -4,7 +4,7 @@
   <form action="" class="relative w-full max-w-xl mr-6 focus-within:text-purple-500">   
     <div class="absolute inset-y-0 flex items-center pl-2">
       <svg
-        class="w-4 h-4"
+        class="w-4 h-4 text-gray-700 dark:text-gray-400"
         aria-hidden="true"
         fill="currentColor"
         viewBox="0 0 20 20"

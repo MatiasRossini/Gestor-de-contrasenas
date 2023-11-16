@@ -1,11 +1,11 @@
-@props(['name'])
+@props(['name', 'val'])
 
 <label class="block text-sm mt-4"  x-data="{ show: true }">
     <span class="text-gray-700 dark:text-gray-400">Contraseña</span>
     <div class="relative">
         <input 
             name="{{$name}}"
-            value="{{old($name)}}"
+            value="{{$val}}"
             placeholder="******************" 
             :type="show ? 'password' : 'text'" 
             class="block w-full text-md text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input mt-1 px-3 py-2"

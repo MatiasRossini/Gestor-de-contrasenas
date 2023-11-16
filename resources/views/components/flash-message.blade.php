@@ -1,6 +1,7 @@
 @if(session()->has('error'))
     <div
-    class="mb-4 inline-flex mr-4 ml-4 h-12 items-center rounded-lg bg-red-600 px-6 py-5 text-base text-white"
+    x-data="{show:true}" x-init="setTimeout(() => show=false, 7000)" x-show="show" x-transition
+    class="mt-4 inline-flex mr-4 ml-4 h-12 items-center rounded-lg bg-red-600 px-6 py-5 text-base text-white"
     role="alert"
     >
         <span class="mr-2">
@@ -16,7 +17,8 @@
 <!-- Recibe contraseña desencriptada y permite copiarla -->
 @if(session()->has('decrypt'))
     <div
-    class="mb-4 inline-flex mr-4 ml-4 h-12 items-center rounded-lg bg-purple-600 px-6 py-5 text-base text-white"
+    x-data="{show:true}" x-init="setTimeout(() => show=false, 7000)" x-show="show" x-transition
+    class="mt-4 inline-flex mr-4 ml-4 h-12 items-center rounded-lg bg-purple-600 px-6 py-5 text-base text-white"
     role="alert"
     >
         <span class="mr-2">
@@ -34,26 +36,29 @@
         Copiar
     </button>
     </div>
-    {{-- <input aria-hidden="true" id="decrypt" type="text" value="{{session('decrypt')}}"> --}}
 
+    {{-- Div escondido donde se almacena la contraseña --}}
     <div style="position:absolute; top:0; left:-500px;">
         <textarea id="decrypt" type="text" rows="1" cols="2">{{session('decrypt')}}</textarea>
     </div>
 
     <script>
         var clipboard = new ClipboardJS('#decryptBtn');
-        console.log(clipboard)
+        // console.log(clipboard)
 
+        // clipboard.on('success', function(e)
+        // {
+        // console.info('Action:', e.action);
+        // console.info('Text:', e.text);
+        // console.info('Trigger:', e.trigger);
 
-        clipboard.on('success', function(e) {
-    console.info('Action:', e.action);
-    console.info('Text:', e.text);
-    console.info('Trigger:', e.trigger);
+        // e.clearSelection();
+        // });
 
-    e.clearSelection();
-});
-        clipboard.on('error', function(e) {
-            console.log("BBB")
-        });
+        // clipboard.on('error', function(e)
+        // {
+        //     console.log("BBB")
+        // });
+        
     </script>
 @endif
