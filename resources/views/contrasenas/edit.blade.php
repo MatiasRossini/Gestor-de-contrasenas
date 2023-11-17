@@ -52,6 +52,9 @@
 
             </label> <!-- Cierra campo descripción -->
 
+            <x-grupos-select : name="GRUPOS">
+            </x-grupos-select>
+
             <div
             class="flex flex-col items-center justify-end mt-2 px-6 py-3 px-3 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row"
         >

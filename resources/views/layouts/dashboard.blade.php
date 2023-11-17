@@ -26,6 +26,11 @@
     <!-- Script para copiar al portapapeles -->
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
     
+    <link
+    href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css"
+    rel="stylesheet"
+  />
+    
     <script src="{{asset('js/charts-lines.js')}}" defer></script>
     <script src="{{asset('js/charts-pie.js')}}" defer></script>
   </head>
@@ -317,7 +322,6 @@
         </main>
 
         <script src="{{asset('js/confirmacion.js')}}"></script>
-        
     </body>
 </html>
         

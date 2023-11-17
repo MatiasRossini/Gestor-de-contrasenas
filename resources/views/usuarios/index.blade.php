@@ -26,7 +26,7 @@
       Contraseñas
     </h4>
 
-    <x-search :placeholder="'Buscar por Descripción'" and create="{{route('contrasenas.create')}}">
+    <x-search :placeholder="'Buscar por Descripción o Nombre'" and create="{{route('contrasenas.create')}}">
     </x-search>
 
       <!-- New Table -->

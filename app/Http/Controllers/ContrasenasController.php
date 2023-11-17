@@ -72,7 +72,7 @@ class ContrasenasController extends Controller
 
     public function update(Request $request, Contrasenas $contrasena)
     {
-        //dd($request->all());
+        dd($request->all());
         if($contrasena->IDD_CREADOR != auth()->id())
         {
             abort(403, 'Acción no autorizada');
