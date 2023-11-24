@@ -49,7 +49,7 @@ class GruposController extends Controller
         
         $camposForm['DTE_ALTA'] = date('Y-m-d');
         $camposForm['DTE_MOD'] = date('Y-m-d');
-        $camposForm['IDD_CREADOR'] = auth()->id();
+        $camposForm['IDD_USUARIO'] = auth()->id();
 
         Grupos::create($camposForm);
 
@@ -68,7 +68,7 @@ class GruposController extends Controller
     {
         //dd($grupo->IDD_);
 
-        if($grupo->IDD_CREADOR != auth()->id())
+        if($grupo->IDD_USUARIO != auth()->id())
         {
             abort(403, 'Acción no autorizada');
         }
@@ -88,7 +88,7 @@ class GruposController extends Controller
     //Función para elminar el grupo de un usuario
     public function destroy(Grupos $grupo)
     {
-        if($grupo->IDD_CREADOR != auth()->id())
+        if($grupo->IDD_USUARIO != auth()->id())
         {
             abort(403, 'Acción no autorizada');
         }

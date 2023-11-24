@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contrasenas;
 use Illuminate\Http\Request;
+use App\Models\ContrasenasGrupos;
 use Illuminate\Support\Facades\Crypt;
 
 
@@ -33,6 +34,8 @@ class ContrasenasController extends Controller
         return view('contrasenas.create',
         [
             'heading' => 'NUEVA CONTRASEÑA'
+            ,'grupos' => auth()->user()->grupos()->latest("DTE_ALTA")->filter(request(['search']))
+            ->paginate(5) //Toma desde la fecha de creación
         ]);
     }
 
@@ -52,7 +55,7 @@ class ContrasenasController extends Controller
         // Agrega la fecha de creación, modificación y el ID del usuario dueño
         $camposForm['DTE_ALTA'] = date('Y-m-d');
         $camposForm['DTE_MOD'] = date('Y-m-d');
-        $camposForm['IDD_CREADOR'] = auth()->id();
+        $camposForm['IDD_USUARIO'] = auth()->id();
     
         // Almacena en la BD
         Contrasenas::create($camposForm);
@@ -65,15 +68,20 @@ class ContrasenasController extends Controller
     {
         $contrasena['STR_CONTRASENA'] = $decrypted = Crypt::decryptString($contrasena->STR_CONTRASENA);
         //dd($contrasena);
-        return view('contrasenas.edit', ['contrasena' => $contrasena,
-            'heading' => 'ACTUALIZAR CONTRASEÑA'
+
+        return view('contrasenas.edit', ['contrasena' => $contrasena
+            ,'heading' => 'ACTUALIZAR CONTRASEÑA'
+            ,'grupos' => auth()->user()->grupos()->latest("DTE_ALTA")->filter(request(['search']))
+            ->paginate(5) //Toma desde la fecha de creación
         ]);
+
     }
 
+    //Carga en la BD los nuevos datos
     public function update(Request $request, Contrasenas $contrasena)
     {
-        dd($request->all());
-        if($contrasena->IDD_CREADOR != auth()->id())
+        //dd($request->all());
+        if($contrasena->IDD_USUARIO != auth()->id())
         {
             abort(403, 'Acción no autorizada');
         }
@@ -82,14 +90,15 @@ class ContrasenasController extends Controller
             'STR_NOMBRE_USUARIO' => ['required', 'max:256']
             ,'STR_CONTRASENA' => ['required', 'max:256']
             ,'STR_DESCRIPCION' => ['max:512']
+            ,'IDD_GRUPO' => ['required']
         ]);
-            
+        
         // Encripta la contraseña ingresada
         $camposForm['STR_CONTRASENA'] = Crypt::encryptString($camposForm['STR_CONTRASENA']);
 
         // Agrega la fecha de creación, modificación y el ID del usuario dueño
         $camposForm['DTE_MOD'] = date('Y-m-d');
-        $camposForm['IDD_CREADOR'] = auth()->id();
+        $camposForm['IDD_USUARIO'] = auth()->id();
     
         // Almacena en la BD
         $contrasena->update($camposForm);
@@ -100,7 +109,7 @@ class ContrasenasController extends Controller
         //Función para elminar la contraseña de un usuario
         public function destroy(Contrasenas $contrasena)
         {
-            if($contrasena->IDD_CREADOR != auth()->id())
+            if($contrasena->IDD_USUARIO != auth()->id())
             {
                 abort(403, 'Acción no autorizada');
             }
@@ -111,3 +120,4 @@ class ContrasenasController extends Controller
         }    
 
 }
+ 

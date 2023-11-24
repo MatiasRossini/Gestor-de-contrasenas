@@ -9,14 +9,15 @@
     <h4
       class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
     >
-      Ultimas carpetas actualizadas (En proceso)
+      Ultimos grupos creados (En proceso)
     </h4>
 
     <div class="grid gap-6 mb-4 md:grid-cols-4 xl:grid-cols-4">
       <!-- Card -->
+      @foreach ($grupos as $grupo)
         <x-responsive-card :titulo="'Aaa'" and valor="100">
         </x-responsive-card>
-
+      @endforeach
     </div>
 
       {{-- Contraseñas generales --}}

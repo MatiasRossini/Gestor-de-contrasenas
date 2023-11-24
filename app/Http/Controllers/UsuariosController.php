@@ -17,6 +17,8 @@ class UsuariosController extends Controller
             'heading' => 'Perfil de ' . auth()->user()->STR_USUARIO
             ,'contrasenas' => auth()->user()->contrasenas()->latest("DTE_ALTA")->filter(request(['search']))
             ->paginate(5)
+            ,'gruoos' => auth()->user()->grupos()->latest("DTE_ALTA")->filter(request(['search']))
+            ->paginate(5)
         ]);
     }
 

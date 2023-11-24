@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Grupos;
 use App\Models\ContrasenasGrupos;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Database\Eloquent\Model;
@@ -19,7 +20,8 @@ class Contrasenas extends Model
         ,'STR_CONTRASENA'
         ,'STR_DESCRIPCION'
         ,'IDD_ICONOGRAFIA'
-        ,'IDD_CREADOR'
+        ,'IDD_GRUPO'
+        ,'IDD_USUARIO'
         ,'DTE_ALTA'
         ,'DTE_MOD'
     ];
@@ -37,12 +39,12 @@ class Contrasenas extends Model
     // La contraseña pertenece a el ID actual de usuario
     public function user()
     {
-        return $this->belongsTo(User::class, 'IDD_CREADOR');
+        return $this->belongsTo(User::class, 'IDD_USUARIO');
     }
 
     // Relación con la tabla contraseñas
-    public function contrasenasGrupos()
+    public function Grupos()
     {
-        return $this->hasMany(ContrasenasGrupos::class, 'IDD_CONTRASENA');
+        return $this->belongsTo(Grupos::class, 'IDD_GRUPO');
     }
 }

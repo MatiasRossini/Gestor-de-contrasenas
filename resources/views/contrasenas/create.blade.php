@@ -49,6 +49,25 @@
 
             </label> <!-- Cierra campo descripción -->
 
+            <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                  Grupo
+                </span>
+                <select
+                    name="IDD_GRUPO"
+                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                >
+                @unless(count($grupos) == 0)
+                    <option value="0" @selected(true)>Grupos/No asignar</option>
+                    @foreach ($grupos as $grupo)
+                        <option value="{{$grupo->id}}">{{$grupo->STR_NOMBRE}}</option>
+                    @endforeach
+                    @else
+                        <option value="0" @selected(true)>Sin grupos para elegir</option>
+                @endunless
+                </select>
+            </label> <!-- Cierra select grupo -->
+
             <div
             class="flex flex-col items-center justify-end mt-2 px-6 py-3 px-3 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row"
         >
