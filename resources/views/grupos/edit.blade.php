@@ -6,7 +6,7 @@
     <h2
       class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
     >
-    GRUPO: '{{$grupo->STR_NOMBRE}}'
+    Editar grupo: {{$grupo->STR_NOMBRE}}
     </h2>
          
     <form method="POST" action="{{route('grupos.update', $grupo->id)}}">
@@ -51,6 +51,16 @@
             <div
             class="flex flex-col items-center justify-end mt-2 px-6 py-3 px-3 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row"
         >
+            <form method="POST" action="{{route('grupos.delete', $grupo->id)}}">
+                @csrf
+                @method('DELETE')
+                <button 
+                class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 focus:outline-none focus:shadow-outline-purple"
+                onclick='return confirmacion()'
+                >
+                    Eliminar
+                </button>
+            </form>
             <a
             class="w-full px-5 py-3 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
             href="{{route('grupos.index')}}"

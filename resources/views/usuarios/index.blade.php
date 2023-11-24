@@ -7,9 +7,9 @@
         {{$heading}}
     </h2>
     <h4
-      class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
+      class="mb-2 text-lg font-semibold text-gray-600 dark:text-gray-300"
     >
-      Ultimos grupos creados (En proceso)
+      Ultimos grupos creados
     </h4>
 
     <div class="grid gap-6 mb-4 md:grid-cols-4 xl:grid-cols-4">
