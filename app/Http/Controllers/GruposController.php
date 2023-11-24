@@ -19,25 +19,30 @@ class GruposController extends Controller
         ]);
     }
 
-        // Pagina donde muestra todas las contraseñas del grupo
-        public function show()
-        {
-            return view('grupos.show',
-            [
-            'heading' => 'CATEGORIAS'
-            ]);
-        }
+    // Pagina donde muestra todas las contraseñas del grupo
+    public function show(Grupos $grupo)
+    {
+        return view('grupos.show',
+        [
+            'grupo' => $grupo
+            ,'heading' => 'Grupo: '. $grupo->STR_NOMBRE
+            ,'contrasenas' => $grupo->Contrasenas()->latest('DTE_ALTA')
+            ->filter(request(['search']))
+            ->paginate(5)
+        ]);
+    }
     
-        // Formulario para crear un nuevo grupo
-        public function create()
-        {
-            return view('grupos.create',
-            [
-                'heading' => 'NUEVO GRUPO'
-            ]);
-        }
+    // Formulario para crear un nuevo grupo
+    public function create()
+    {
+        return view('grupos.create',
+        [
 
-        // Almacenado en la BD de la categoria creada
+            'heading' => 'NUEVO GRUPO'
+        ]);
+    }
+
+    // Almacenado en la BD de la categoria creada
     public function store(Request $request)
     {
         //dd($request->all());

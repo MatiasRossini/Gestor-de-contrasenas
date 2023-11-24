@@ -2,31 +2,20 @@
 
 @section('content')
 
-<div class="container px-6 mx-auto grid">
-    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-        {{$heading}}
-    </h2>
-    <h4
-      class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
-    >
-      Ultimos grupos creados (En proceso)
-    </h4>
+  <div class="container px-6 mx-auto grid">
+    <a href="{{route("grupos.edit", $grupo->id)}}"
+      class="mb-2 flex items-center justify-between text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400" aria-label="Edit">
+      <h2
+      class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+      >
+        {{$heading}} 
+      </h2>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+      </svg>                      
+    </a> {{-- Edit --}}
 
-    <div class="grid gap-6 mb-4 md:grid-cols-4 xl:grid-cols-4">
-      <!-- Card -->
-      @foreach ($grupos as $grupo)
-        <x-responsive-card : titulo="{{$grupo->STR_NOMBRE}}" and desc="{{$grupo->STR_DESCRIPCION}}" and fecha="{{$grupo->DTE_MOD}}" and id="{{$grupo->id}}">
-        </x-responsive-card>
-      @endforeach
-    </div>
-
-      {{-- Contraseñas generales --}}
-    <h4
-      class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
-    >
-      Contraseñas
-    </h4>
-
+    
     <x-search :placeholder="'Buscar por Descripción o Nombre'" and create="{{route('contrasenas.create')}}">
     </x-search>
 
@@ -139,7 +128,8 @@
           class="px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
         >
         {{$contrasenas->links()}}
-    </div>
-</div>
+    </div>    
+
+  </div>
 
 @endsection

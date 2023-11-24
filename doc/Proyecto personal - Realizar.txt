@@ -2,13 +2,17 @@ Completar
 
 Proyecto:
 Listo - Implementar grupo a contraseña
-- Cargar en perfil ultimas cuatro contraseñas
-- Re hacer index grupos - cards
-- Poder abrir grupos y traer contraseñas asignadas
+Listo - Cargar en perfil ultimas cuatro contraseñas
+Listo - Re hacer index grupos - cards
+Listo - Poder abrir grupos y traer contraseñas asignadas
+- Re hacer sistema de premiums
 - Agregar flash messages
 - Instalar localmente TomSelect para modificar sus clases
 - Implementar Jquery para modal y ajax
+	- Modales
+	- Ver contraseña mediante boton
 - Implementar sweetalerts para mejores alert
+- Web.php agregar texto link unico
 
 Doc:
 Hecho - Explicación de tecnologías utilizadas

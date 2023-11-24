@@ -15,10 +15,10 @@ class UsuariosController extends Controller
 
         return view('usuarios.index', [
             'heading' => 'Perfil de ' . auth()->user()->STR_USUARIO
-            ,'contrasenas' => auth()->user()->contrasenas()->latest("DTE_ALTA")->filter(request(['search']))
+            ,'contrasenas' => auth()->user()->contrasenas()->latest("DTE_MOD")->filter(request(['search']))
             ->paginate(5)
-            ,'gruoos' => auth()->user()->grupos()->latest("DTE_ALTA")->filter(request(['search']))
-            ->paginate(5)
+            ,'grupos' => auth()->user()->grupos()->latest("DTE_MOD")->filter(request(['search']))
+            ->paginate(4)
         ]);
     }
 
