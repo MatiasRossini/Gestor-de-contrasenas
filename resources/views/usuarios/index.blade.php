@@ -15,7 +15,7 @@
     <div class="grid gap-6 mb-4 md:grid-cols-4 xl:grid-cols-4">
       <!-- Card -->
       @foreach ($grupos as $grupo)
-        <x-responsive-card : titulo="{{$grupo->STR_NOMBRE}}" and desc="{{$grupo->STR_DESCRIPCION}}" and fecha="{{$grupo->DTE_MOD}}" and id="{{$grupo->id}}">
+        <x-responsive-card : titulo="{{$grupo->STR_NOMBRE}}" and desc="{{$grupo->STR_DESCRIPCION}}" and fecha="{{$grupo->DTE_MOD}}" and route="{{route('grupos.show', $grupo->id)}}" and icon=1>
         </x-responsive-card>
       @endforeach
     </div>

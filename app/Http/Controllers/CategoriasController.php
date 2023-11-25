@@ -14,7 +14,7 @@ class CategoriasController extends Controller
     {
         return view('categorias.index', 
         [
-            'heading' => 'CATEGORIAS',
+            'heading' => 'ESTADOS PREMIUM',
             'categorias' => Categorias::latest("DTE_ALTA")->filter(request(['search']))
             ->paginate(5) //Toma desde la fecha de creación
         ]);
