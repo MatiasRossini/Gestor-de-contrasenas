@@ -7,10 +7,8 @@ Listo - Re hacer index grupos - cards
 Listo - Poder abrir grupos y traer contraseñas asignadas
 Listo - Re hacer sistema de premiums
 Listo - Agregar flash messages
-- Implementar sweetalerts para mejores alert
-- Implementar Jquery para modal y ajax
-	- Modales
-	- Ver contraseña mediante boton
+- Pagina ajustes:
+	Modificación de usuario
 
 Doc:
 Hecho - Explicación de tecnologías utilizadas

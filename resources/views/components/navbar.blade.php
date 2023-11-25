@@ -127,7 +127,7 @@
           <span class="ml-4">Premium</span>
         </a>
       </li>
-      <li class="relative px-6 py-3">
+      {{-- <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
           href=""
@@ -148,7 +148,7 @@
           </svg>              
           <span class="ml-4">Actualizaciones</span>
         </a>
-      </li>
+      </li> --}}
       <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -172,11 +172,11 @@
               stroke-linejoin="round" 
               d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" 
             />
-          </svg>  
+          </svg>
           <span class="ml-4">Ajustes</span>
         </a>
       </li>
-      <li class="relative px-6 py-3">
+      {{-- <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
           href=""
@@ -197,7 +197,7 @@
           </svg>
           <span class="ml-4">Soporte</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
     @auth
     <form method="POST" action="{{route('usuarios.logout')}}" class="px-6 my-6">
