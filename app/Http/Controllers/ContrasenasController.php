@@ -60,7 +60,7 @@ class ContrasenasController extends Controller
         // Almacena en la BD
         Contrasenas::create($camposForm);
     
-        return to_route('usuarios.perfil');
+        return to_route('usuarios.perfil')->with('success', 'Contraseña creada correctamente');
     }
 
     //Mostrar formulario de edición
@@ -103,7 +103,7 @@ class ContrasenasController extends Controller
         // Almacena en la BD
         $contrasena->update($camposForm);
     
-        return back();
+        return back()->with('success', 'Contraseña actualizada correctamente');
     }
 
         //Función para elminar la contraseña de un usuario
@@ -116,7 +116,7 @@ class ContrasenasController extends Controller
     
             $contrasena->delete();
     
-            return to_route('usuarios.perfil');
+            return to_route('usuarios.perfil')->with('success', 'Contraseña eliminada correctamente');
         }    
 
 }

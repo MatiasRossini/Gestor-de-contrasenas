@@ -58,7 +58,7 @@ class UsuariosController extends Controller
         //Inicia sesión automaricamente
         auth()->login($usuario);
 
-        return to_route('usuarios.perfil');
+        return to_route('usuarios.perfil')->with('success', 'Cuenta creada correctamente');
     }
 
     // Cerrar sesion del usuairo

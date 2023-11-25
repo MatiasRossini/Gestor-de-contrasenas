@@ -1,3 +1,19 @@
+@if(session()->has('success'))
+    <div
+    x-data="{show:true}" x-init="setTimeout(() => show=false, 7000)" x-show="show" x-transition    
+    class="mt-4 inline-flex mr-4 ml-4 h-12 items-center rounded-lg bg-green-100 dark:bg-green-500 px-6 py-5 text-base text-dark dark:text-white"
+    role="alert"
+    >
+        <span class="mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>              
+            
+        </span>
+        {{session('success')}}
+    </div>
+@endif
+
 @if(session()->has('error'))
     <div
     x-data="{show:true}" x-init="setTimeout(() => show=false, 7000)" x-show="show" x-transition
@@ -44,21 +60,5 @@
 
     <script>
         var clipboard = new ClipboardJS('#decryptBtn');
-        // console.log(clipboard)
-
-        // clipboard.on('success', function(e)
-        // {
-        // console.info('Action:', e.action);
-        // console.info('Text:', e.text);
-        // console.info('Trigger:', e.trigger);
-
-        // e.clearSelection();
-        // });
-
-        // clipboard.on('error', function(e)
-        // {
-        //     console.log("BBB")
-        // });
-        
     </script>
 @endif

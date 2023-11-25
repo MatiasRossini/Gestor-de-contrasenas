@@ -58,7 +58,7 @@ class GruposController extends Controller
 
         Grupos::create($camposForm);
 
-        return to_route('grupos.index');
+        return to_route('grupos.index')->with('success', 'Grupo creado correctamente');
     }
 
     //Mostrar formulario de edición
@@ -87,7 +87,7 @@ class GruposController extends Controller
 
         $grupo->update($camposForm);
 
-        return back();
+        return back()->with('success', 'Grupo actualizado correctamente');
     }
 
     //Función para elminar el grupo de un usuario
@@ -100,7 +100,7 @@ class GruposController extends Controller
 
         $grupo->delete();
 
-        return to_route('grupos.index');
+        return to_route('grupos.index')->with('success', 'Grupo eliminado correctamente');
     }
 
 }
