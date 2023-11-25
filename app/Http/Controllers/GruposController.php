@@ -22,6 +22,11 @@ class GruposController extends Controller
     // Pagina donde muestra todas las contraseñas del grupo
     public function show(Grupos $grupo)
     {
+        if($grupo->IDD_USUARIO != auth()->id())
+        {
+            return to_route('index')->with('error', 'No se pudo acceder al grupo');
+        }
+        
         return view('grupos.show',
         [
             'grupo' => $grupo
@@ -37,7 +42,6 @@ class GruposController extends Controller
     {
         return view('grupos.create',
         [
-
             'heading' => 'NUEVO GRUPO'
         ]);
     }
@@ -64,6 +68,11 @@ class GruposController extends Controller
     //Mostrar formulario de edición
     public function edit(Grupos $grupo)
     {
+        if($grupo->IDD_USUARIO != auth()->id())
+        {
+            return to_route('index')->with('error', 'No se pudo acceder al grupo');
+        }
+
         return view('grupos.edit', ['grupo' => $grupo,
             'heading' => 'ACTUALIZAR GRUPO'
         ]);
@@ -72,10 +81,9 @@ class GruposController extends Controller
     public function update(Request $request, Grupos $grupo)
     {
         //dd($grupo->IDD_);
-
         if($grupo->IDD_USUARIO != auth()->id())
         {
-            abort(403, 'Acción no autorizada');
+            return to_route('index')->with('error', 'No se pudo acceder al grupo');
         }
         $camposForm = $request->validate(
         [
@@ -95,7 +103,7 @@ class GruposController extends Controller
     {
         if($grupo->IDD_USUARIO != auth()->id())
         {
-            abort(403, 'Acción no autorizada');
+            return to_route('index')->with('error', 'No se pudo acceder al grupo');
         }
 
         $grupo->delete();

@@ -130,7 +130,7 @@ Route::get('/perfil/{contrasena}', [ContrasenasController::class, 'decrypt']
 ->middleware('auth');
 
 
-/* FIN CONTRASEÑAS */ 
+/* FIN CONTRASEÑAS */
 
 
 /* CATEGORIAS - SOLO ADMIN */

@@ -93,13 +93,12 @@ class UsuariosController extends Controller
                 ,'password' => ['required'] 
             ]);
 
-            if(auth()->attempt($camposForm))
-            {
-                $request->session()->regenerate();
-
-                return to_route('usuarios.perfil');
-            }
+        if(auth()->attempt($camposForm))
+        {
+            $request->session()->regenerate();
+            return to_route('usuarios.perfil');
+        }
         
-            return back()->withErrors(['STR_CORREO' => 'Credenciales no validas'])->onlyInput('STR_CORREO');
+        return back()->withErrors(['STR_CORREO' => 'Credenciales no validas'])->onlyInput('STR_CORREO');
     }
 }

@@ -5,14 +5,12 @@ Listo - Implementar grupo a contraseña
 Listo - Cargar en perfil ultimas cuatro contraseñas
 Listo - Re hacer index grupos - cards
 Listo - Poder abrir grupos y traer contraseñas asignadas
-- Re hacer sistema de premiums
-- Agregar flash messages
-- Instalar localmente TomSelect para modificar sus clases
+Listo - Re hacer sistema de premiums
+Listo - Agregar flash messages
+- Implementar sweetalerts para mejores alert
 - Implementar Jquery para modal y ajax
 	- Modales
 	- Ver contraseña mediante boton
-- Implementar sweetalerts para mejores alert
-- Web.php agregar texto link unico
 
 Doc:
 Hecho - Explicación de tecnologías utilizadas
@@ -28,6 +26,7 @@ IDE
 Framework
 Base de datos
 Encriptación - Desencriptación
+Bcrypt
 Front-end - Back-end
 Js/JavaScript
 Css

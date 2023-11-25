@@ -15,6 +15,11 @@ class ContrasenasController extends Controller
     public function decrypt(Contrasenas $contrasena)
     {
         //dd($contrasena->STR_CONTRASENA);
+        if($contrasena->IDD_USUARIO != auth()->id())
+        {
+            return to_route('index')->with('error', 'No se pudo acceder a la contraseña');
+        }
+
         try 
         {
             $decrypted = Crypt::decryptString($contrasena->STR_CONTRASENA);
@@ -66,6 +71,12 @@ class ContrasenasController extends Controller
     //Mostrar formulario de edición
     public function edit(Contrasenas $contrasena)
     {
+
+        if($contrasena->IDD_USUARIO != auth()->id())
+        {
+            return to_route('index')->with('error', 'No se pudo acceder a la contraseña');
+        }
+
         $contrasena['STR_CONTRASENA'] = $decrypted = Crypt::decryptString($contrasena->STR_CONTRASENA);
         //dd($contrasena);
 
@@ -83,8 +94,9 @@ class ContrasenasController extends Controller
         //dd($request->all());
         if($contrasena->IDD_USUARIO != auth()->id())
         {
-            abort(403, 'Acción no autorizada');
+            return to_route('index')->with('error', 'No se pudo acceder a la contraseña');
         }
+
         $camposForm = $request->validate(
         [
             'STR_NOMBRE_USUARIO' => ['required', 'max:256']
@@ -111,7 +123,7 @@ class ContrasenasController extends Controller
         {
             if($contrasena->IDD_USUARIO != auth()->id())
             {
-                abort(403, 'Acción no autorizada');
+                return to_route('index')->with('error', 'No se pudo acceder a la contraseña');
             }
     
             $contrasena->delete();
