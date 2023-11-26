@@ -1,8 +1,5 @@
 Completar
-$2y$12$Cr6mgOEZVBYCf1eh9JsIAuMxfVexFlOQemSBuh1wibE8IjrSvi7d.
-$2y$12$mtEkSx37JBMq60wlGF/NhONCcNz/dhAtYfgmBULLa2RHl0WVSJXoy
 
-Qwerty10#!
 Proyecto:
 Listo - Implementar grupo a contraseña
 Listo - Cargar en perfil ultimas cuatro contraseñas
@@ -20,10 +17,13 @@ Hecho - Explicación de las funciones que puede realizar el usuario
 - Datos tecnicos sobre el codigo
 - Diccionario tecnico
 - Webografia
+- Encriptación Laravel
+Actualizar: README.MD
 
 Diccionario tecnico explicar:
 UI
 IDE
+Base de datos
 Framework
 Base de datos
 Encriptación - Desencriptación
