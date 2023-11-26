@@ -106,6 +106,8 @@ class GruposController extends Controller
             return to_route('index')->with('error', 'No se pudo acceder al grupo');
         }
 
+        
+
         $grupo->delete();
 
         return to_route('grupos.index')->with('success', 'Grupo eliminado correctamente');

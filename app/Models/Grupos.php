@@ -18,11 +18,9 @@ class Grupos extends Model
     [
         'STR_NOMBRE'
         ,'STR_DESCRIPCION'
-        ,'IDD_ICONOGRAFIA'
         ,'IDD_USUARIO'
         ,'DTE_ALTA'
         ,'DTE_MOD'
-        ,'DTE_BAJA'
     ];
 
     public function scopeFilter($query, array $filtros)

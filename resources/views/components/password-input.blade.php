@@ -1,7 +1,7 @@
-@props(['name', 'val'])
+@props(['title', 'name', 'val'])
 
 <label class="block text-sm mt-4"  x-data="{ show: true }">
-    <span class="text-gray-700 dark:text-gray-400">Contraseña</span>
+    <span class="text-gray-700 dark:text-gray-400">{{$title}}</span>
     <div class="relative">
         <input 
             name="{{$name}}"

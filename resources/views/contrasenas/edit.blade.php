@@ -32,7 +32,7 @@
 
             </label> <!-- Cierra campo Nombre usuario -->
 
-            <x-password-input : name="STR_CONTRASENA" val="{{$contrasena->STR_CONTRASENA}}">  
+            <x-password-input : title="Contraseña" and name="STR_CONTRASENA" and val="{{$contrasena->STR_CONTRASENA}}">  
                 <span class="text-gray-700 dark:text-gray-400 text-xs">(Recomendado que contenga Mayusculas, minusculas, Números (1-9) y Caracteres especiales (!$#%))</span>        
             </x-password-input> <!-- Cierra campo contraseña -->
 
@@ -92,5 +92,6 @@
             </div>
         </div>
     </form>
+</div>
 
 @endsection

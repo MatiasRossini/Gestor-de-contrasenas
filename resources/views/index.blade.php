@@ -41,12 +41,7 @@
           class="text-purple-600 dark:text-purple-400 hover:underline"
           href="https://clipboardjs.com/"
           >
-          clipboard.js</a> y 
-          <a
-          class="text-purple-600 dark:text-purple-400 hover:underline"
-          href="https://tom-select.js.org/"
-          >
-          Tom Select</a>!
+          clipboard.js</a>.
       </p>
 
       <p class="mb-4 text-gray-600 dark:text-gray-400">
@@ -150,11 +145,11 @@
             d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" 
           />
         </svg>
-        <span class="ml-2"><- Premium - Aqui podras ver las categorias disponibles para el usuario</span>
+        <span class="ml-2"><- Premium - Aqui podras ver los estados de usuario disponibles</span>
         </p>
 
         <!-- P Actualizaciones -->
-        <p class="mb-2 text-gray-600 dark:text-gray-400 inline-flex items-center w-full">
+        {{-- <p class="mb-2 text-gray-600 dark:text-gray-400 inline-flex items-center w-full">
           <svg 
           xmlns="http://www.w3.org/2000/svg" 
           fill="none" 
@@ -170,7 +165,7 @@
           />
         </svg>    
         <span class="ml-2"><- Actualizaciones - (En proceso) Aqui se mostraran todas las actualizaciones realizadas al sistema!</span>
-        </p>
+        </p> --}}
 
         <!-- P Ajustes -->
         <p class="mb-2 text-gray-600 dark:text-gray-400 inline-flex items-center w-full">
@@ -193,11 +188,11 @@
             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" 
           />
         </svg> 
-        <span class="ml-2"><- Ajustes - (En proceso) Aqui se le permitira al usuario modificar su cuenta y partes del sistema!</span>
+        <span class="ml-2"><- Ajustes - Aqui se le permitira al usuario modificar o eliminar su cuenta</span>
         </p>
 
         <!-- P Soporte -->
-        <p class="mb-2 text-gray-600 dark:text-gray-400 inline-flex items-center w-full">
+        {{-- <p class="mb-2 text-gray-600 dark:text-gray-400 inline-flex items-center w-full">
           <svg 
           xmlns="http://www.w3.org/2000/svg" 
           fill="none" 
@@ -214,7 +209,7 @@
         </svg>
         <span class="ml-2"><- Soporte - (En proceso) Aqui se mostrara un formulario para contactar con soporte.</span>
         </p>
-      </section>
+      </section> --}}
 
       <!-- Guia - sesión -->
       <section class="mt-2 ">

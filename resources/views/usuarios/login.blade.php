@@ -45,7 +45,7 @@
   
                 </label>
   
-                <x-password-input : name="password" val="{{old('password')}}">
+                <x-password-input : title="Contraseña" and name="password" and val="{{old('password')}}">
                 </x-password-input>
   
                 <button

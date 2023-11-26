@@ -6,19 +6,22 @@
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
         {{$heading}}
     </h2>
-    <h4
-      class="mb-2 text-lg font-semibold text-gray-600 dark:text-gray-300"
-    >
-      Ultimos grupos creados
-    </h4>
+    @unless(count($grupos) == 0)
+      <h4
+        class="mb-2 text-lg font-semibold text-gray-600 dark:text-gray-300"
+      >
+        Ultimos grupos creados
+      </h4>
 
-    <div class="grid gap-6 mb-4 md:grid-cols-4 xl:grid-cols-4">
-      <!-- Card -->
-      @foreach ($grupos as $grupo)
-        <x-responsive-card : titulo="{{$grupo->STR_NOMBRE}}" and desc="{{$grupo->STR_DESCRIPCION}}" and fecha="{{$grupo->DTE_MOD}}" and route="{{route('grupos.show', $grupo->id)}}" and icon=1>
-        </x-responsive-card>
-      @endforeach
-    </div>
+      <div class="grid gap-6 mb-4 md:grid-cols-4 xl:grid-cols-4">
+        <!-- Card -->
+        @foreach ($grupos as $grupo)
+          <x-responsive-card : titulo="{{$grupo->STR_NOMBRE}}" and desc="{{$grupo->STR_DESCRIPCION}}" and fecha="{{$grupo->DTE_MOD}}" and route="{{route('grupos.show', $grupo->id)}}" and icon=1>
+          </x-responsive-card>
+        @endforeach
+
+      </div>
+    @endunless
 
       {{-- Contraseñas generales --}}
     <h4

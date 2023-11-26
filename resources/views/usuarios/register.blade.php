@@ -61,7 +61,7 @@
 
                 </label>
 
-                <x-password-input : name="password" val="{{old('password')}}">
+                <x-password-input : title="Contraseña" and name="password" and val="{{old('password')}}">
                   <span class="text-gray-700 dark:text-gray-400 text-xs">(Debe contener un minimo de 10 caracteres y al menos una Mayuscula, minuscula, Número (1-9) y Caracteres especial (!$#%))</span>        
                 </x-password-input> <!-- Cierra campo contraseña -->
 

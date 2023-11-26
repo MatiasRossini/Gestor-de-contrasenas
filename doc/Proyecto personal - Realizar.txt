@@ -1,5 +1,8 @@
 Completar
+$2y$12$Cr6mgOEZVBYCf1eh9JsIAuMxfVexFlOQemSBuh1wibE8IjrSvi7d.
+$2y$12$mtEkSx37JBMq60wlGF/NhONCcNz/dhAtYfgmBULLa2RHl0WVSJXoy
 
+Qwerty10#!
 Proyecto:
 Listo - Implementar grupo a contraseña
 Listo - Cargar en perfil ultimas cuatro contraseñas
@@ -7,7 +10,7 @@ Listo - Re hacer index grupos - cards
 Listo - Poder abrir grupos y traer contraseñas asignadas
 Listo - Re hacer sistema de premiums
 Listo - Agregar flash messages
-- Pagina ajustes:
+Listo - Pagina ajustes:
 	Modificación de usuario
 
 Doc:

@@ -19,7 +19,6 @@ class Categorias extends Model
         ,'FLT_VALOR'
         ,'DTE_ALTA'
         ,'DTE_MOD'
-        ,'DTE_BAJA'
     ];
 
     public function scopeFilter($query, array $filtros)

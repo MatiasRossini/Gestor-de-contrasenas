@@ -19,7 +19,6 @@ class Contrasenas extends Model
         'STR_NOMBRE_USUARIO'
         ,'STR_CONTRASENA'
         ,'STR_DESCRIPCION'
-        ,'IDD_ICONOGRAFIA'
         ,'IDD_GRUPO'
         ,'IDD_USUARIO'
         ,'DTE_ALTA'

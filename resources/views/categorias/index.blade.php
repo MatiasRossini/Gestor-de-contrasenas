@@ -12,7 +12,7 @@
     @unless(count($categorias) == 0)
 
       @foreach($categorias as $categoria)
-        <x-responsive-card class="mb-4" : titulo="{{$categoria->STR_NOMBRE}} - ${{$categoria->FLT_VALOR}}" and desc="{{$categoria->STR_DESCRIPCION}}" and fecha="{{$categoria->DTE_MOD}}" and route="errors/404" and icon=2/>
+        <x-responsive-card class="mb-4" : titulo="{{$categoria->STR_NOMBRE}} - ${{$categoria->FLT_VALOR}}" and desc="{{$categoria->STR_DESCRIPCION}}" and fecha="{{$categoria->DTE_MOD}}" and route="" and icon=2/>
       @endforeach
               
       @else

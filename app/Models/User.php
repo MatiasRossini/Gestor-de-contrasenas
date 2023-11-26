@@ -24,7 +24,6 @@ class User extends Authenticatable
         ,'password'
         ,'DTE_ALTA'
         ,'DTE_MOD'
-        ,'DTE_BAJA'
     ];
 
     /**

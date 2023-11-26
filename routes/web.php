@@ -56,6 +56,26 @@ Route::get('/login', [UsuariosController::class, 'login'])
 // Loguea al usuario
 Route::post('usuarios/authenticate', [UsuariosController::class, 'authenticate'])->name('usuarios.authenticate');
 
+// Carga la pagina de ajustes
+Route::get('/ajustes', [UsuariosController::class, 'ajustes'])
+->name('usuarios.ajustes')
+->middleware('auth');
+
+// Carga el formulario de edicion de usuario
+Route::get('/ajustes/{usuario}/editar', [UsuariosController::class, 'edit'])
+->name('usuarios.edit')
+->middleware('auth');
+
+// Actualiza los datos del usuario
+Route::put('/ajustes/{usuario}', [UsuariosController::class, 'update'])
+->name('usuarios.update')
+->middleware('auth');
+
+//Elimina el usuario y sus datos
+Route::delete('/ajustes/{usuario}', [UsuariosController::class, 'destroy'])
+->name('usuarios.delete')
+->middleware('auth');
+
 /* FIN USUARIOS */
 
 /* GRUPOS */
