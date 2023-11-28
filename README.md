@@ -19,6 +19,9 @@ Para llevar a cabo el proyecto se utilizo:
 - [Clipboard.js](https://clipboardjs.com/)
 - Plantilla: [Windmill Dashboard](https://github.com/estevanmaito/windmill-dashboard)
 
+## Como utilizarlo
+El proyecto solo necesita que usted cree o tenga una base de datos (Agregada dentro de documentación) con el nombre "gestor_contrasenas" y le cargue "gestor_contrasenas.sql" o "gestor_contrasenas-vacia.sql"
+
 ## Que sigue?
 
 Con la base actual del proyecto, se idea implementar en las siguientes versiones
