@@ -52,6 +52,7 @@ class ContrasenasController extends Controller
             'STR_NOMBRE_USUARIO' => ['required', 'max:256']
             ,'STR_CONTRASENA' => ['required', 'max:256']
             ,'STR_DESCRIPCION' => ['max:512']
+            ,'IDD_GRUPO' => ['required']
         ]);
             
         // Encripta la contraseña ingresada
