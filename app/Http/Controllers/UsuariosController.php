@@ -42,6 +42,9 @@ class UsuariosController extends Controller
             ,'PRIVACY_POLITICS' => ['required']
         ]);
 
+        //Convierte el correo en lowercase
+        $camposForm['STR_CORREO'] =  strtolower($camposForm['STR_CORREO']);
+
         // Hash contraseña
         $camposForm['password'] = bcrypt($camposForm['password']); //Hashea
         
@@ -90,7 +93,11 @@ class UsuariosController extends Controller
             [
                 'STR_CORREO' => ['required', 'email']
                 ,'password' => ['required'] 
-            ]);
+            ]
+        );
+
+        // Convierte el correo en lowercase
+        $camposForm['STR_CORREO'] =  strtolower($camposForm['STR_CORREO']);
 
         if(auth()->attempt($camposForm))
         {

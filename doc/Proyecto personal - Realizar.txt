@@ -1,4 +1,7 @@
 Completar
+KeyLock@gmail.com
+KeyLocker13#
+	
 
 Proyecto:
 Listo - Implementar grupo a contraseña
@@ -9,15 +12,17 @@ Listo - Re hacer sistema de premiums
 Listo - Agregar flash messages
 Listo - Pagina ajustes:
 	Modificación de usuario
+Listo - Borrar botones github y twitter de forms sesión.
+Listo - Hacer lowercase el correo del usuario al cargarlo y en forms- Agregar politicas de privacidad.
 
 Doc:
 Hecho - Explicación de tecnologías utilizadas
 Hecho - Diagramas y explicación de los mismos
 Hecho - Explicación de las funciones que puede realizar el usuario
-- Datos tecnicos sobre el codigo
-- Diccionario tecnico
+Listo - Funciones del codigo
+Listo - Diccionario tecnico
+- Conclusiones
 - Webografia
-- Encriptación Laravel
 Actualizar: README.MD
 
 Diccionario tecnico explicar:
@@ -27,6 +32,7 @@ Base de datos
 Framework
 Base de datos
 Encriptación - Desencriptación
+Hash
 Bcrypt
 Front-end - Back-end
 Js/JavaScript
